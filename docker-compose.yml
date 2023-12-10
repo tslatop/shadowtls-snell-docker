@@ -1,4 +1,4 @@
-version: '2.4'
+version: '3.0'
 
 services:
   snell-server:
@@ -7,11 +7,11 @@ services:
     networks:
       - snell
     environment:
-      - PSK=password # Change here
+      - PSK=password # Change snell password
       - PORT=9102
 
   shadow-tls:
-    image: ghcr.io/ihciah/shadow-tls:latest
+    image: ihciah/shadow-tls:latest
     restart: unless-stopped
     ports:
       - "9100:9100" # Change to your own port
@@ -21,8 +21,8 @@ services:
       - MODE=server
       - LISTEN=:::9100
       - SERVER=snell-server:9102
-      - TLS=www.apple.com:443 # Change here
-      - PASSWORD=password # Change here
+      - TLS=www.apple.com:443 
+      - PASSWORD=password # Change shadow-tls password
       - V3=true
 
 networks:
