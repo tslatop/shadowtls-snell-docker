@@ -1,13 +1,10 @@
 FROM --platform=$BUILDPLATFORM frolvlad/alpine-glibc:latest
 
-COPY --from=xx / /
-COPY get_url.sh /get_url.sh
 ARG TARGETPLATFORM
 ARG VERSION
 
-RUN xx-info env && wget -q -O "snell-server.zip" $(/get_url.sh ${VERSION} $(xx-info arch)) && \
-    unzip snell-server.zip && rm snell-server.zip && \
-    xx-verify /snell-server
+RUN wget -q -O "snell-server.zip" https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-aarch64.zip && \
+    unzip snell-server.zip && rm snell-server.zip
 
 FROM frolvlad/alpine-glibc:latest
 
