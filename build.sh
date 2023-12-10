@@ -9,9 +9,9 @@ if [ -z "$VERSION" ]; then
     exit 1
 fi
 
-docker buildx build \
+docker build \
   --push \
-  --platform linux/amd64 \
+  --platform linux/arm64 \
   --build-arg VERSION=${VERSION} \
   --tag geekdada/snell-server:$VERSION \
   .
