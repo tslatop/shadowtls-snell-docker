@@ -13,5 +13,5 @@ docker build \
   --push \
   --platform linux/arm64 \
   --build-arg VERSION=${VERSION} \
-  --tag geekdada/snell-server:$VERSION \
+  --tag tslatop/snell-server:$VERSION \
   .
