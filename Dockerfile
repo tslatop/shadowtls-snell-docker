@@ -1,6 +1,4 @@
-FROM --platform=$BUILDPLATFORM tonistiigi/xx AS xx
-
-FROM --platform=$BUILDPLATFORM frolvlad/alpine-glibc:latest AS build
+FROM --platform=$BUILDPLATFORM frolvlad/alpine-glibc:latest
 
 COPY --from=xx / /
 COPY get_url.sh /get_url.sh
